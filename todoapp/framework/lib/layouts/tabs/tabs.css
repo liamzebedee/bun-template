@@ -1,0 +1,70 @@
+/* tabs layout — top header bar + a cross-fading content shell below it.
+   Ported from the mealplanner top-bar layout. */
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: -apple-system, system-ui, sans-serif;
+  color: #2a1f10;
+  background: #f3efe0;
+  overflow: hidden;
+}
+#root { height: 100%; }
+
+/* Shell: header bar stacked above the content shell, filling the viewport. */
+.app { display: flex; flex-direction: column; height: 100vh; }
+
+/* Header bar — lives OUTSIDE .ctn, so turbolinks never swaps it. */
+.topbar {
+  display: flex;
+  gap: 6px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #d8d0b6;
+  background: #ECE9D8;
+  align-items: center;
+}
+.app-title {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #5a4a2c;
+  text-transform: capitalize;
+  margin-right: 10px;
+}
+.tabs { display: flex; gap: 6px; }
+.tab {
+  height: 32px;
+  padding: 0 16px;
+  border: 1px solid #c8bf9e;
+  background: #f6f1de;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  text-transform: capitalize;
+  text-decoration: none;
+  color: inherit;
+}
+.tab:hover { background: #fffaeb; }
+.tab.active { background: #5a4a2c; color: #f3efe0; border-color: #5a4a2c; }
+.spacer { flex: 1; }
+
+/* Content shell — the ONLY region turbolinks swaps. The opacity transition is
+   what turbolinks animates on each navigation (cross-fade). Kept short (matches
+   fade-config.ts) because the fade is the only thing felt between pages — the
+   turbolinks fetch itself is ~5ms. turbolinks also sets this inline from
+   __turboConfig.fade; this rule keeps the value visible and is the fallback. */
+.ctn {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  transition: opacity 40ms ease-out;
+}
+
+/* Loading + #hash landing flash (turbolinks hooks). */
+[data-turbo-loading] { cursor: progress; }
+.target-flash { animation: target-flash 1s ease; }
+@keyframes target-flash {
+  from { background: #fde68a; }
+  to { background: transparent; }
+}

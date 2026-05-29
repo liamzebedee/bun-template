@@ -1,0 +1,57 @@
+/* App-specific styles. The shell (html/body/.app/.topbar/.ctn) and the
+   turbolinks cross-fade are owned by the tabs layout: tabs.css. */
+
+/* Page content lives inside the .ctn content shell. */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.prose { color: #444; line-height: 1.5; max-width: 24rem; }
+.prose p { margin: 0 0 0.75rem; }
+
+.row { display: flex; gap: 0.5rem; }
+
+input {
+  padding: 0.5rem;
+  border: 1px solid #c8bf9e;
+  border-radius: 6px;
+  font: inherit;
+  background: #fffdf6;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #c8bf9e;
+  border-radius: 6px;
+  background: #f6f1de;
+  cursor: pointer;
+  font: inherit;
+}
+button:hover { background: #fffaeb; }
+
+ul { list-style: none; margin: 0; padding: 0; width: 100%; max-width: 24rem; }
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #e6dfc6;
+}
+li label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  flex: 1;
+}
+li.done span { text-decoration: line-through; color: #998a63; }
+li button { border: none; background: none; color: #998a63; cursor: pointer; padding: 0; }
+li button:hover { color: #2a1f10; background: none; }
+
+.count { margin: 0; color: #998a63; font-size: 0.85rem; }

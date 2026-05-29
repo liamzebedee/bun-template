@@ -1,0 +1,57 @@
+:root {
+  font-family: -apple-system, system-ui, sans-serif;
+  color: #1a1a1a;
+  background: #fafafa;
+}
+
+html, body { margin: 0; height: 100%; }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+h1 { margin: 0; font-size: 1.25rem; }
+
+.row { display: flex; gap: 0.5rem; }
+
+input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font: inherit;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font: inherit;
+}
+button:hover { background: #f0f0f0; }
+
+ul { list-style: none; margin: 0; padding: 0; width: 100%; max-width: 24rem; }
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #eee;
+}
+li button { border: none; background: none; color: #999; cursor: pointer; }
+li button:hover { color: #1a1a1a; }
+
+/* Turbolinks: loading indicator + #hash landing flash. */
+[data-turbo-loading] { cursor: progress; }
+.target-flash { animation: target-flash 1s ease; }
+@keyframes target-flash {
+  from { background: #fde68a; }
+  to { background: transparent; }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App</title>
+<link rel="stylesheet" href="/framework/lib/layouts/tabs/tabs.css">
+<link rel="stylesheet" href="/app/index.css">
+</head>
+<body>
+<!-- tabs layout. The .topbar is a SIBLING of .ctn, not a child: turbolinks only
+     swaps .ctn, so the header bar persists across navigations. -->
+<div class="app">
+  <header class="topbar">
+    <div class="app-title">App Title</div>
+    <nav class="tabs">
+      <a class="tab" href="/">One</a>
+      <a class="tab" href="/two">Two</a>
+      <a class="tab" href="/three">Three</a>
+    </nav>
+    <div class="spacer"></div>
+  </header>
+  <!-- content shell: the only region turbolinks fetches + cross-fades. -->
+  <main class="ctn"><div id="root"></div></main>
+</div>
+<script type="module" src="/app/index.tsx"></script>
+</body>
+</html>
